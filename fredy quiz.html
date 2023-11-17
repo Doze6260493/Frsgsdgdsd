@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ff004cc4;
+            transition: background-color 0.5s;
+        }
+
+        h1 {
+            background-color: #0F4E7D;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .pregunta {
+            margin: 20px;
+        }
+
+        button {
+            background-color: #FF5733;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #resultado {
+            margin: 20px;
+            font-weight: bold;
+        }
+
+        #contador {
+            margin: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prueba tus conocimientos de coordenadas</h1>
+    <div class="pregunta" id="pregunta1">
+        <p>1. ¿Cuál es la coordenada x en el punto donde se cruza el eje Y en un sistema de coordenadas cartesianas?</p>
+        <button onclick="verificarRespuesta(0, 1)">a) -1</button>
+        <button onclick="verificarRespuesta(1, 1)">b) 0</button>
+        <button onclick="verificarRespuesta(0, 1)">c) 1</button>
+    </div>
+    <div class="pregunta" id="pregunta2">
+        <p>2. En un sistema de coordenadas cartesianas, si un punto se encuentra en el segundo cuadrante, ¿cuál de las siguientes afirmaciones es cierta?</p>
+        <button onclick="verificarRespuesta(1, 2)">a) Su coordenada x es positiva y su coordenada y es negativa.</button>
+        <button onclick="verificarRespuesta(0, 2)">b) Ambas coordenadas son positivas.</button>
+        <button onclick="verificarRespuesta(0, 2)">c) Ambas coordenadas son negativas.</button>
+    </div>
+    <div class="pregunta" id="pregunta3">
+        <p>3. Si tienes un punto en el plano cartesiano con coordenadas (3, -4), ¿en qué cuadrante se encuentra?</p>
+        <button onclick="verificarRespuesta(0, 3)">a) Primer cuadrante</button>
+        <button onclick="verificarRespuesta(0, 3)">b) Segundo cuadrante</button>
+        <button onclick="verificarRespuesta(0, 3)">c) Tercer cuadrante</button>
+        <button onclick="verificarRespuesta(1, 3)">d) Cuarto cuadrante</button>
+    </div>
+    <div class="pregunta" id="pregunta4">
+        <p>4. ¿Cuál es la distancia entre los puntos (1, 3) y (4, 7) en el plano cartesiano?</p>
+        <button onclick="verificarRespuesta(0, 4)">a) 3</button>
+        <button onclick="verificarRespuesta(0, 4)">b) 4</button>
+        <button onclick="verificarRespuesta(1, 4)">c) 5</button>
+        <button onclick="verificarRespuesta(0, 4)">d) 6</button>
+    </div>
+    <div class="pregunta" id="pregunta5">
+        <p>5. Si el punto P(2, 5) se refleja sobre el eje X, ¿cuál será su nueva ubicación?</p>
+        <button onclick="verificarRespuesta(1, 5)">a) (2, -5)</button>
+        <button onclick="verificarRespuesta(0, 5)">b) (-2, 5)</button>
+        <button onclick="verificarRespuesta(0, 5)">c) (-2, -5)</button>
+        <button onclick="verificarRespuesta(0, 5)">d) (2, 5)</button>
+    </div>
+    <div id="resultado"></div>
+    <div id="contador">
+        Preguntas correctas: <span id="correctas">0</span> | Preguntas incorrectas: <span id="incorrectas">0</span>
+    </div>
+
+    <script>
+        let preguntasRespondidas = [false, false, false, false, false];
+        let preguntasCorrectas = 0;
+        let preguntasIncorrectas = 0;
+
+        function verificarRespuesta(respuesta, pregunta) {
+            if (respuesta === 1) {
+                preguntasCorrectas++;
+                document.getElementById("correctas").textContent = preguntasCorrectas;
+                document.getElementById("resultado").innerHTML = "¡Bien hecho! Respuesta correcta.";
+                document.body.style.backgroundColor = "#39FF14";
+                setTimeout(function() {
+                    document.body.style.backgroundColor = "";
+                    document.getElementById("resultado").innerHTML = "";
+                }, 3000);
+            } else {
+                preguntasIncorrectas++;
+                document.getElementById("incorrectas").textContent = preguntasIncorrectas;
+                const respuestas = [1, 2, 3, 4, 5];
+                document.getElementById("resultado").innerHTML = "Fallaste. La respuesta correcta es: " + obtenerRespuestaCorrecta(respuestas[pregunta - 1]);
+                document.body.style.backgroundColor = "#FF5733";
+                setTimeout(function() {
+                    document.body.style.backgroundColor = "";
+                    document.getElementById("resultado").innerHTML = "";
+                }, 5000);
+            }
+            document.getElementById("pregunta" + pregunta).style.display = "none";
+        }
+
+        function obtenerRespuestaCorrecta(pregunta) {
+            const respuestas = [
+                "b) 0",
+                "a) Su coordenada x es positiva y su coordenada y es negativa.",
+                "c) Tercer cuadrante",
+                "c) 5",
+                "a) (2, -5)"
+            ];
+            return respuestas[pregunta - 1];
+        }
+    </script>
+</body>
+ 
+
+
+
+ <head>
+     <style>
+         body {
+             font-family: Arial, sans-serif;
+             text-align: center;
+             background-color: #FFBF00;
+             transition: background-color 0.5s;
+         }
+ 
+         h1 {
+             background-color: #FF5733;
+             color: #fff;
+             padding: 10px;
+         }
+ 
+         .pregunta {
+             margin: 20px;
+         }
+ 
+         button {
+             background-color: #0F4E7D;
+             color: #fff;
+             padding: 10px;
+             border: none;
+             cursor: pointer;
+         }
+ 
+         #resultado {
+             margin: 20px;
+             font-weight: bold;
+         }
+     </style>
+ </head>
+ <body>
+     <h1>Prueba tus conocimientos de funciones matemáticas</h1>
+     <div class="pregunta" id="pregunta1">
+         <p>1. ¿Cuál es la definición de una función algebraica?</p>
+         <button onclick="verificarRespuesta(0, 1)">a) Una función que involucra radicales</button>
+         <button onclick="verificarRespuesta(1, 1)">b) Una función que se puede expresar como un polinomio en una o más variables</button>
+         <button onclick="verificarRespuesta(0, 1)">c) Una función que se basa en logaritmos</button>
+     </div>
+     <div class="pregunta" id="pregunta2">
+         <p>2. ¿Cuál es la definición de una función polinómica?</p>
+         <button onclick="verificarRespuesta(0, 2)">a) Una función que involucra radicales</button>
+         <button onclick="verificarRespuesta(1, 2)">b) Una función que se puede expresar como una razón de dos polinomios</button>
+         <button onclick="verificarRespuesta(0, 2)">c) Una función que se basa en logaritmos</button>
+     </div>
+     <div class="pregunta" id="pregunta3">
+         <p>3. ¿Cuál es la definición de una función racional?</p>
+         <button onclick="verificarRespuesta(0, 3)">a) Una función que involucra radicales</button>
+         <button onclick="verificarRespuesta(1, 3)">b) Una función que se puede expresar como una razón de dos polinomios</button>
+         <button onclick="verificarRespuesta(0, 3)">c) Una función que se basa en logaritmos</button>
+     </div>
+     <div class="pregunta" id="pregunta4">
+         <p>4. ¿Cuál es la definición de una función radical?</p>
+         <button onclick="verificarRespuesta(0, 4)">a) Una función que involucra la constante π (pi)</button>
+         <button onclick="verificarRespuesta(1, 4)">b) Una función que se puede expresar como una razón de dos polinomios</button>
+         <button onclick="verificarRespuesta(0, 4)">c) Una función que se basa en logaritmos</button>
+     </div>
+     <div class="pregunta" id="pregunta5">
+         <p>5. ¿Cuál es la definición de una función trascendente?</p>
+         <button onclick="verificarRespuesta(0, 5)">a) Una función que involucra la constante e</button>
+         <button onclick="verificarRespuesta(0, 5)">b) Una función que se puede expresar como una razón de dos polinomios</button>
+         <button onclick="verificarRespuesta(1, 5)">c) Una función que no es algebraica, es decir, no se puede expresar como un polinomio en una o más variables</button>
+     </div>
+     
+     </div>
+ 
+     <script>
+         let preguntasRespondidas = [false, false, false, false, false];
+         let preguntasCorrectas = 0;
+         let preguntasIncorrectas = 0;
+ 
+         function verificarRespuesta(respuesta, pregunta) {
+             if (preguntasRespondidas[pregunta - 1]) {
+                 return;
+             }
+ 
+             preguntasRespondidas[pregunta - 1] = true;
+ 
+             if (respuesta === 1) {
+                 preguntasCorrectas++;
+                 document.getElementById("correctas").textContent = preguntasCorrectas;
+                 document.getElementById("resultado").innerHTML = "¡Bien hecho! Respuesta correcta.";
+                 document.body.style.backgroundColor = "#39FF14";
+                 setTimeout(function() {
+                     document.body.style.backgroundColor = "";
+                     document.getElementById("resultado").innerHTML = "";
+                 }, 3000);
+             } else {
+                 preguntasIncorrectas++;
+                 document.getElementById("incorrectas").textContent = preguntasIncorrectas;
+                 document.getElementById("resultado").innerHTML = "Fallaste. La respuesta correcta es: " + obtenerRespuestaCorrecta(pregunta);
+                 document.body.style.backgroundColor = "#FF5733";
+                 setTimeout(function() {
+                     document.body.style.backgroundColor = "";
+                     document.getElementById("resultado").innerHTML = "";
+                 }, 5000);
+             }
+ 
+             // Oculta la pregunta actual
+             document.getElementById("pregunta" + pregunta).style.display = "none";
+         }
+ 
+         function obtenerRespuestaCorrecta(pregunta) {
+             const respuestas = [
+                 "b) Una función que se puede expresar como un polinomio en una o más variables",
+                 "b) Una función que se puede expresar como una razón de dos polinomios",
+                 "b) Una función que se puede expresar como una razón de dos polinomios",
+                 "b) Una función que se puede expresar como una razón de dos polinomios",
+                 "c) Una función que no es algebraica, es decir, no se puede expresar como un polinomio en una o más variables"
+             ];
+             return respuestas[pregunta - 1];
+         }
+     </script>
+ </body>
+ <!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ff004cc4;
+            transition: background-color 0.5s;
+        }
+
+        h1 {
+            background-color: #0F4E7D;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .pregunta {
+            margin: 20px;
+        }
+
+        button {
+            background-color: #FF5733;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #resultado {
+            margin: 20px;
+            font-weight: bold;
+        }
+
+        #contador {
+            margin: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prueba tus conocimientos de funciones matemáticas</h1>
+    <div class="pregunta" id="pregunta1">
+        <p>1. ¿Cuál es la definición de una función a trozos?</p>
+        <button onclick="verificarRespuesta(1, 1)">a) Una función que tiene múltiples ramas, cada una definida en un intervalo diferente</button>
+        <button onclick="verificarRespuesta(0, 1)">b) Una función que mapea un conjunto a otro sin pérdida de información</button>
+        <button onclick="verificarRespuesta(0, 1)">c) Una función que se expresa como un solo polinomio</button>
+    </div>
+    <div class="pregunta" id="pregunta2">
+        <p>2. ¿Cuál es la definición de una función inyectiva?</p>
+        <button onclick="verificarRespuesta(0, 2)">a) Una función que tiene múltiples ramas, cada una definida en un intervalo diferente</button>
+        <button onclick="verificarRespuesta(1, 2)">b) Una función que mapea un conjunto a otro sin pérdida de información</button>
+        <button onclick="verificarRespuesta(0, 2)">c) Una función que se expresa como un solo polinomio</button>
+    </div>
+    <div class="pregunta" id="pregunta3">
+        <p>3. ¿Cuál es la definición de una función suryectiva?</p>
+        <button onclick="verificarRespuesta(0, 3)">a) Una función que tiene múltiples ramas, cada una definida en un intervalo diferente</button>
+        <button onclick="verificarRespuesta(1, 3)">b) Una función que mapea un conjunto a otro sin pérdida de información</button>
+        <button onclick="verificarRespuesta(0, 3)">c) Una función que se expresa como un solo polinomio</button>
+    </div>
+    <div class="pregunta" id="pregunta4">
+        <p>4. ¿Cuál es la definición de una función biyectiva?</p>
+        <button onclick="verificarRespuesta(0, 4)">a) Una función que tiene múltiples ramas, cada una definida en un intervalo diferente</button>
+        <button onclick="verificarRespuesta(1, 4)">b) Una función que mapea un conjunto a otro sin pérdida de información</button>
+        <button onclick="verificarRespuesta(0, 4)">c) Una función que se expresa como un solo polinomio</button>
+    </div>
+    <div class="pregunta" id="pregunta5">
+        <p>5. ¿Cuál es la definición de una función no inyectiva y no suryectiva?</p>
+        <button onclick="verificarRespuesta(1, 5)">a) Una función que tiene múltiples ramas, cada una definida en un intervalo diferente</button>
+        <button onclick="verificarRespuesta(0, 5)">b) Una función que mapea un conjunto a otro sin pérdida de información</button>
+        <button onclick="verificarRespuesta(0, 5)">c) Una función que se expresa como un solo polinomio</button>
+    </div>
+     
+
+    <script>
+        let preguntasRespondidas = [false, false, false, false, false];
+        let preguntasCorrectas = 0;
+        let preguntasIncorrectas = 0;
+
+        function verificarRespuesta(respuesta, pregunta) {
+            if (respuesta === 1) {
+                preguntasCorrectas++;
+                document.getElementById("correctas").textContent = preguntasCorrectas;
+                document.getElementById("resultado").innerHTML = "¡Bien hecho! Respuesta correcta.";
+                document.body.style.backgroundColor = "#39FF14";
+                setTimeout(function() {
+                    document.body.style.backgroundColor = "";
+                    document.getElementById("resultado").innerHTML = "";
+                }, 3000);
+            } else {
+                preguntasIncorrectas++;
+                document.getElementById("incorrectas").textContent = preguntasIncorrectas;
+                const respuestas = [1, 2, 3, 4, 5];
+                document.getElementById("resultado").innerHTML = "Fallaste. La respuesta correcta es: " + obtenerRespuestaCorrecta(respuestas[pregunta - 1]);
+                document.body.style.backgroundColor = "#FF5733";
+                setTimeout(function() {
+                    document.body.style.backgroundColor = "";
+                    document.getElementById("resultado").innerHTML = "";
+                }, 5000);
+            }
+            document.getElementById("pregunta" + pregunta).style.display = "none";
+        }
+
+        function obtenerRespuestaCorrecta(pregunta) {
+            const respuestas = [
+                "b) Una función que mapea un conjunto a otro sin pérdida de información",
+                "b) Una función que mapea un conjunto a otro sin pérdida de información",
+                "b) Una función que mapea un conjunto a otro sin pérdida de información",
+                "b) Una función que mapea un conjunto a otro sin pérdida de información",
+                "b) Una función que mapea un conjunto a otro sin pérdida de información"
+            ];
+            return respuestas[pregunta - 1];
+        }
+    </script>
+</body>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ff004cc4;
+            transition: background-color 0.5s;
+        }
+
+        h1 {
+            background-color: #0F4E7D;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .pregunta {
+            margin: 20px;
+        }
+
+        button {
+            background-color: #FF5733;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #resultado {
+            margin: 20px;
+            font-weight: bold;
+        }
+
+        #contador {
+            margin: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prueba tus conocimientos de logaritmos</h1>
+    <div class="pregunta" id="pregunta1">
+        <p>1. Resuelve para x: log base 4 (x) + log base 4 (x + 2) = 3.</p>
+        <button onclick="verificarRespuesta(0, 1)">a) x = 2</button>
+        <button onclick="verificarRespuesta(1, 1)">b) x = 4</button>
+        <button onclick="verificarRespuesta(0, 1)">c) x = 8</button>
+    </div>
+    <div class="pregunta" id="pregunta2">
+        <p>2. Calcula el valor de log base 3 de 81 + log base 2 de 32.</p>
+        <button onclick="verificarRespuesta(1, 2)">a) 4</button>
+        <button onclick="verificarRespuesta(0, 2)">b) 5</button>
+        <button onclick="verificarRespuesta(0, 2)">c) 6</button>
+    </div>
+    <div class="pregunta" id="pregunta3">
+        <p>3. Resuelve para x: log base 10 (2x - 1) = 3.</p>
+        <button onclick="verificarRespuesta(0, 3)">a) x = 1000</button>
+        <button onclick="verificarRespuesta(1, 3)">b) x = 1001</button>
+        <button onclick="verificarRespuesta(0, 3)">c) x = 1002</button>
+    </div>
+    <div class="pregunta" id="pregunta4">
+        <p>4. Calcula el valor de log base 5 de 25 - log base 5 de 1.</p>
+        <button onclick="verificarRespuesta(0, 4)">a) 0</button>
+        <button onclick="verificarRespuesta(1, 4)">b) 1</button>
+        <button onclick="verificarRespuesta(0, 4)">c) 2</button>
+    </div>
+    <div class="pregunta" id="pregunta5">
+        <p>5. Resuelve para x: 2^(x - 1) = 8^(2x + 1).</p>
+        <button onclick="verificarRespuesta(0, 5)">a) x = -3</button>
+        <button onclick="verificarRespuesta(0, 5)">b) x = -2</button>
+        <button onclick="verificarRespuesta(1, 5)">c) x = -1</button>
+    </div>
+     
+    <script>
+        let preguntasRespondidas = [false, false, false, false, false];
+        let preguntasCorrectas = 0;
+        let preguntasIncorrectas = 0;
+
+        function verificarRespuesta(respuesta, pregunta) {
+            if (respuesta === 1) {
+                preguntasCorrectas++;
+                document.getElementById("correctas").textContent = preguntasCorrectas;
+                document.getElementById("resultado").innerHTML = "¡Bien hecho! Respuesta correcta.";
+                document.body.style.backgroundColor = "#39FF14";
+                setTimeout(function() {
+                    document.body.style.backgroundColor = "";
+                    document.getElementById("resultado").innerHTML = "";
+                }, 3000);
+            } else {
+                preguntasIncorrectas++;
+                document.getElementById("incorrectas").textContent = preguntasIncorrectas;
+                const respuestas = [
+                    "a) x = 2",
+                    "a) 4",
+                    "b) x = 1001",
+                    "b) 1",
+                    "a) x = -3"
+                ];
+                document.getElementById("resultado").innerHTML = "Fallaste. La respuesta correcta es: " + respuestas[pregunta - 1];
+                document.body.style.backgroundColor = "#FF5733";
+                setTimeout(function() {
+                    document.body.style.backgroundColor = "";
+                    document.getElementById("resultado").innerHTML = "";
+                }, 5000);
+            }
+            document.getElementById("pregunta" + pregunta).style.display = "none";
+        }
+    </script>
+</body>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ff004cc4;
+            transition: background-color 0.5s;
+        }
+
+        h1 {
+            background-color: #0F4E7D;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .pregunta {
+            margin: 20px;
+        }
+
+        button {
+            background-color: #FF5733;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #resultado {
+            margin: 20px;
+            font-weight: bold;
+        }
+
+        #contador {
+            margin: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prueba tus conocimientos de funciones matemáticas</h1>
+    <div class="pregunta" id="pregunta1">
+        <p>1. ¿Cuál es el número primo más grande conocido hasta la fecha?</p>
+        <button onclick="verificarRespuesta(0, 1)">a) 1,000,000</button>
+        <button onclick="verificarRespuesta(0, 1)">b) 10,000,000</button>
+        <button onclick="verificarRespuesta(0, 1)">c) 100,000,000</button>
+        <button onclick="verificarRespuesta(1, 1)">d) No se conoce un número primo más grande.</button>
+    </div>
+    <div class="pregunta" id="pregunta2">
+        <p>2. ¿Cuál es el límite de la función f(x) = x^3 / e^x cuando x tiende a infinito?</p>
+        <button onclick="verificarRespuesta(1, 2)">a) 0</button>
+        <button onclick="verificarRespuesta(0, 2)">b) 1</button>
+        <button onclick="verificarRespuesta(0, 2)">c) ∞</button>
+        <button onclick="verificarRespuesta(0, 2)">d) 3</button>
+    </div>
+    <div class="pregunta" id="pregunta3">
+        <p>3. ¿Cuál es el teorema que establece que la integral triple de una función continua es independiente de la parametrización en una variedad tridimensional?</p>
+        <button onclick="verificarRespuesta(0, 3)">a) Teorema de Stokes</button>
+        <button onclick="verificarRespuesta(0, 3)">b) Teorema de Green</button>
+        <button onclick="verificarRespuesta(1, 3)">c) Teorema de Gauss</button>
+        <button onclick="verificarRespuesta(0, 3)">d) Teorema de la Divergencia</button>
+    </div>
+    <div class="pregunta" id="pregunta4">
+        <p>4. Si A es una matriz cuadrada de orden n y det(A) = 0, ¿qué se puede afirmar sobre A?</p>
+        <button onclick="verificarRespuesta(0, 4)">a) A es una matriz diagonal</button>
+        <button onclick="verificarRespuesta(0, 4)">b) A es una matriz invertible</button>
+        <button onclick="verificarRespuesta(1, 4)">c) A es una matriz singular</button>
+        <button onclick="verificarRespuesta(0, 4)">d) A es una matriz simétrica</button>
+    </div>
+    <div class="pregunta" id="pregunta5">
+        <p>5. ¿Cuál es el cardinal del conjunto de todos los subconjuntos del conjunto de los números reales?</p>
+        <button onclick="verificarRespuesta(0, 5)">a) 0</button>
+        <button onclick="verificarRespuesta(0, 5)">b) 1</button>
+        <button onclick="verificarRespuesta(1, 5)">c) Infinito incontable (continuo)</button>
+        <button onclick="verificarRespuesta(0, 5)">d) 2</button>
+    </div>
+  
+    </div>
+
+    <script>
+        let preguntasRespondidas = [false, false, false, false, false];
+        let preguntasCorrectas = 0;
+        let preguntasIncorrectas = 0;
+
+        function verificarRespuesta(respuesta, pregunta) {
+            if (respuesta === 1) {
+                preguntasCorrectas++;
+                document.getElementById("correctas").textContent = preguntasCorrectas;
+                document.getElementById("resultado").innerHTML = "¡Bien hecho! Respuesta correcta.";
+                document.body.style.backgroundColor = "#39FF14";
+                setTimeout(function() {
+                    document.body.style.backgroundColor = "";
+                    document.getElementById("resultado").innerHTML = "";
+                }, 3000);
+            } else {
+                preguntasIncorrectas++;
+                document.getElementById("incorrectas").textContent = preguntasIncorrectas;
+                const respuestas = [1, 2, 3, 4, 5];
+                document.getElementById("resultado").innerHTML = "Fallaste. La respuesta correcta es: " + obtenerRespuestaCorrecta(respuestas[pregunta - 1]);
+                document.body.style.backgroundColor = "#FF5733";
+                setTimeout(function() {
+                    document.body.style.backgroundColor = "";
+                    document.getElementById("resultado").innerHTML = "";
+                }, 5000);
+            }
+            document.getElementById("pregunta" + pregunta).style.display = "none";
+        }
+
+        function obtenerRespuestaCorrecta(pregunta) {
+            const respuestas = [
+                "d) No se conoce un número primo más grande.",
+                "a) 0",
+                "c) Teorema de Gauss",
+                "c) A es una matriz singular",
+                "c) Infinito incontable (continuo)"
+            ];
+            return respuestas[pregunta - 1];
+        }
+    </script>
+</body>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ff004cc4;
+            transition: background-color 0.5s;
+        }
+
+        h1 {
+            background-color: #FDE54D;
+            color: #333;
+            padding: 10px;
+        }
+
+        .pregunta {
+            margin: 20px;
+        }
+
+        .respuesta {
+            background-color: #0F4E7D;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #resultado {
+            margin: 20px;
+            font-weight: bold;
+        }
+
+        #contador {
+            margin: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prueba tus conocimientos de física</h1>
+    <div class="pregunta" id="pregunta1">
+        <p>Pregunta 1: Si un objeto tiene un peso de 50 kg y la gravedad es de 10 m/s², ¿cuál es la fuerza normal?</p>
+        <button class="respuesta" onclick="verificarRespuesta(1, 1)">A) 500 N</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 1)">B) 5 N</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 1)">C) 50 N</button>
+    </div>
+    <div class="pregunta" id="pregunta2">
+        <p>Pregunta 2: Si un objeto tiene un peso de 80 kg y la gravedad es de 10 m/s², ¿cuál es la fuerza normal?</p>
+        <button class="respuesta" onclick="verificarRespuesta(1, 2)">A) 800 N</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 2)">B) 8 N</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 2)">C) 80 N</button>
+    </div>
+    <div class="pregunta" id="pregunta3">
+        <p>Pregunta 3: Si un objeto tiene un peso de 60 kg y la gravedad es de 10 m/s², ¿cuál es la fuerza normal?</p>
+        <button class="respuesta" onclick="verificarRespuesta(1, 3)">A) 600 N</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 3)">B) 60 N</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 3)">C) 6 N</button>
+    </div>
+    <div class="pregunta" id="pregunta4">
+        <p>Pregunta 4: Si un objeto tiene un peso de 70 kg y la gravedad es de 10 m/s², ¿cuál es la fuerza normal?</p>
+        <button class="respuesta" onclick="verificarRespuesta(1, 4)">A) 700 N</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 4)">B) 7 N</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 4)">C) 70 N</button>
+    </div>
+    <div class="pregunta" id="pregunta5">
+        <p>Pregunta 5: Si un objeto tiene un peso de 45 kg y la gravedad es de 10 m/s², ¿cuál es la fuerza normal?</p>
+        <button class="respuesta" onclick="verificarRespuesta(1, 5)">A) 450 N</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 5)">B) 45 N</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 5)">C) 4.5 N</button>
+    </div>
+   
+    </div>
+
+    <script>
+        let preguntasRespondidas = [false, false, false, false, false];
+        let preguntasCorrectas = 0;
+        let preguntasIncorrectas = 0;
+
+        function verificarRespuesta(respuesta, pregunta) {
+            if (respuesta === 1) {
+                preguntasCorrectas++;
+                document.getElementById("correctas").textContent = preguntasCorrectas;
+                document.getElementById("resultado").innerHTML = "¡Bien hecho! Respuesta correcta.";
+                document.body.style.backgroundColor = "#39FF14";
+                setTimeout(function() {
+                    document.body.style.backgroundColor = "";
+                    document.getElementById("resultado").innerHTML = "";
+                }, 3000);
+            } else {
+                preguntasIncorrectas++;
+                document.getElementById("incorrectas").textContent = preguntasIncorrectas;
+                const respuestas = [
+                    "A) 500 N",
+                    "C) 80 N",
+                    "A) 600 N",
+                    "C) 70 N",
+                    "A) 450 N"
+                ];
+                document.getElementById("resultado").innerHTML = "Fallaste. La respuesta correcta es: " + respuestas[pregunta - 1];
+                document.body.style.backgroundColor = "#FF5733";
+                setTimeout(function() {
+                    document.body.style.backgroundColor = "";
+                    document.getElementById("resultado").innerHTML = "";
+                }, 5000);
+            }
+            document.getElementById("pregunta" + pregunta).style.display = "none";
+        }
+    </script>
+</body>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ff004cc4;
+            transition: background-color 0.5s;
+        }
+
+        h1 {
+            background-color: #FDE54D;
+            color: #333;
+            padding: 10px;
+        }
+
+        .pregunta {
+            margin: 20px;
+        }
+
+        .respuesta {
+            background-color: #0F4E7D;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #resultado {
+            margin: 20px;
+            font-weight: bold;
+        }
+
+        #contador {
+            margin: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prueba tus conocimientos de física: Fuerza Neta</h1>
+    <div class="pregunta" id="pregunta1">
+        <p>Pregunta 1: Si un objeto tiene una fuerza aplicada de 70 N y una fuerza de friccion  de 10 N, ¿cuál es la fuerza neta?</p>
+        <button class="respuesta" onclick="verificarRespuesta(1, 1)">A) 60 N</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 1)">B) 70 N</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 1)">C) 10 N</button>
+    </div>
+    <div class="pregunta" id="pregunta2">
+        <p>Pregunta 2: Si un objeto tiene una fuerza aplicada    de 100 N y una fuerza  de friccion de 20 N, ¿cuál es la fuerza neta?</p>
+        <button class="respuesta" onclick="verificarRespuesta(1, 2)">A) 80 N</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 2)">B) 100 N</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 2)">C) 20 N</button>
+    </div>
+    <div class="pregunta" id="pregunta3">
+        <p>Pregunta 3: Si un objeto tiene una fuerza aplicada   de 40 N y una fuerza  de friccion de 30 N, ¿cuál es la fuerza neta?</p>
+        <button class="respuesta" onclick="verificarRespuesta(1, 3)">A) 10 N</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 3)">B) 40 N</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 3)">C) 30 N</button>
+    </div>
+    <div class="pregunta" id="pregunta4">
+        <p>Pregunta 4: Si un objeto tiene una fuerza  aplicada de 90 N y una fuerza  de friccion de 50 N, ¿cuál es la fuerza neta?</p>
+        <button class="respuesta" onclick="verificarRespuesta(1, 4)">A) 40 N</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 4)">B) 90 N</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 4)">C) 50 N</button>
+    </div>
+    <div class="pregunta" id="pregunta5">
+        <p>Pregunta 5: Si un objeto tiene una fuerza aplicada de 120 N y una fuerza  de friccion de 80 N, ¿cuál es la fuerza neta?</p>
+        <button class="respuesta" onclick="verificarRespuesta(1, 5)">A) 40 N</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 5)">B) 120 N</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 5)">C) 80 N</button>
+    </div>
+   
+    </div>
+
+    <script>
+        let preguntasRespondidas = [false, false, false, false, false];
+        let preguntasCorrectas = 0;
+        let preguntasIncorrectas = 0;
+
+        function verificarRespuesta(respuesta, pregunta) {
+            if (respuesta === 1) {
+                preguntasCorrectas++;
+                document.getElementById("correctas").textContent = preguntasCorrectas;
+                document.getElementById("resultado").innerHTML = "¡Bien hecho! Respuesta correcta.";
+                document.body.style.backgroundColor = "#39FF14";
+                setTimeout(function() {
+                    document.body.style.backgroundColor = "";
+                    document.getElementById("resultado").innerHTML = "";
+                }, 3000);
+            } else {
+                preguntasIncorrectas++;
+                document.getElementById("incorrectas").textContent = preguntasIncorrectas;
+                const respuestas = [
+                    "A) 60 N",
+                    "A) 80 N",
+                    "A) 10 N",
+                    "A) 40 N",
+                    "A) 40 N"
+                ];
+                document.getElementById("resultado").innerHTML = "Fallaste. La respuesta correcta es: " + respuestas[pregunta - 1];
+                document.body.style.backgroundColor = "#FF5733";
+                setTimeout(function() {
+                    document.body.style.backgroundColor = "";
+                    document.getElementById("resultado").innerHTML = "";
+                }, 5000);
+            }
+            document.getElementById("pregunta" + pregunta).style.display = "none";
+        }
+    </script>
+</body>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ff004cc4;
+            transition: background-color 0.5s;
+        }
+
+        h1 {
+            background-color: #FDE54D;
+            color: #333;
+            padding: 10px;
+        }
+
+        .pregunta {
+            margin: 20px;
+        }
+
+        .respuesta {
+            background-color: #0F4E7D;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #resultado {
+            margin: 20px;
+            font-weight: bold;
+        }
+
+        #contador {
+            margin: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prueba tus conocimientos unidades de medida en física</h1>
+    <div class="pregunta" id="pregunta1">
+      <p>Pregunta 1: Si Fredy está a 1 km de distancia de la estación del bus, ¿cuántos metros está la estación del bus de Fredy?</p>
+      <button class="respuesta" onclick="verificarRespuesta(1, 1)">A) 1000   m</button>
+      <button class="respuesta" onclick="verificarRespuesta(0, 1)">B) 10000  m</button>
+      <button class="respuesta" onclick="verificarRespuesta(0, 1)">C)  100 m</button>
+  </div>
+    <div class="pregunta" id="pregunta2">
+        <p>Pregunta 2: Si Fredy está a 4 millas de distancia de Dylan, ¿cuántos metros está Dylan de Fredy?</p>
+        <button class="respuesta" onclick="verificarRespuesta(1, 2)">A) 6437.38 m</button>
+        <button class "respuesta" onclick="verificarRespuesta(0, 2)">B) 12874.8 m</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 2)">C) 6759.245 m</button>
+    </div>
+    <div class="pregunta" id="pregunta3">
+        <p>Pregunta 3: Si a mi amigo inglés Harry me mide y me dice que mido 5.74147 pies, ¿cuánto es mi medida en metros?</p>
+        <button class="respuesta" onclick="verificarRespuesta(1, 3)">A) 1.75 m</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 3)">B) 1.6 m</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 3)">C) 1.7 m</button>
+    </div>
+    <div class="pregunta" id="pregunta4">
+        <p>Pregunta 4: Si un campo de fútbol americano mide 120 yardas, ¿cuántos metros mide el campo de fútbol?</p>
+        <button class="respuesta" onclick="verificarRespuesta(1, 4)">A) 109.728 m</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 4)">B) 100.753 m</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 4)">C) 110.855 m</button>
+    </div>
+    <div class="pregunta" id="pregunta5">
+        <p>Pregunta 5: Si un lápiz tiene una medida de 6.299213 pulgadas, ¿cuánto mide el lápiz en cm?</p>
+        <button class="respuesta" onclick="verificarRespuesta(1, 5)">A)  16.51 cm</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 5)">B) 15.34 cm</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 5)">C) 16.12 cm</button>
+    </div>
+     
+    
+    </div>
+
+    <script>
+        let preguntasRespondidas = [false, false, false, false, false];
+        let preguntasCorrectas = 0;
+        let preguntasIncorrectas = 0;
+
+        function verificarRespuesta(respuesta, pregunta) {
+            if (respuesta === 1) {
+                preguntasCorrectas++;
+                document.getElementById("correctas").textContent = preguntasCorrectas;
+                document.getElementById("resultado").innerHTML = "¡Bien hecho! Respuesta correcta.";
+                document.body.style.backgroundColor = "#39FF14";
+                setTimeout(function() {
+                    document.body.style.backgroundColor = "";
+                    document.getElementById("resultado").innerHTML = "";
+                }, 3000);
+            } else {
+                preguntasIncorrectas++;
+                document.getElementById("incorrectas").textContent = preguntasIncorrectas;
+                const respuestas = [
+                    "A) 1000   m ",
+                    "A) 6437.38 m",
+                    "A) 1.75 m",
+                    "A) 109.728 m",
+                    "A)  16.51 cm"
+                ];
+                document.getElementById("resultado").innerHTML = "Fallaste. La respuesta correcta es: " + respuestas[pregunta - 1];
+                document.body.style.backgroundColor = "#FF5733";
+                setTimeout(function() {
+                    document.body.style.backgroundColor = "";
+                    document.getElementById("resultado").innerHTML = "";
+                }, 5000);
+            }
+            document.getElementById("pregunta" + pregunta).style.display = "none";
+        }
+    </script>
+</body>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ff004cc4;
+            transition: background-color 0.5s;
+        }
+
+        h1 {
+            background-color: #FDE54D;
+            color: #333;
+            padding: 10px;
+        }
+
+        .pregunta {
+            margin: 20px;
+        }
+
+        .respuesta {
+            background-color: #0F4E7D;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #resultado {
+            margin: 20px;
+            font-weight: bold;
+        }
+
+        #contador {
+            margin: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prueba tus conocimientos de física: Fuerza Neta, Fuerza de Fricción y Aceleración</h1>
+    <div class="pregunta" id="pregunta1">
+        <p>Pregunta 1: Si un objeto tiene una fuerza aplicada  de 70 N y una fuerza de friccion  de 10 N, ¿cuál es la fuerza neta, la fuerza de fricción y la aceleración (suponiendo una masa de 5 kg)?</p>
+        <button class="respuesta" onclick="verificarRespuesta(0, 1)">A) Fuerza Neta: 70 N, Fuerza de Fricción: 10 N, Aceleración: 14 m/s²</button>
+        <button class="respuesta" onclick="verificarRespuesta(1, 1)">B) Fuerza Neta: 60 N, Fuerza de Fricción: 10 N, Aceleración: 12 m/s²</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 1)">C) Fuerza Neta: 60 N, Fuerza de Fricción: 20 N, Aceleración: 10 m/s²</button>
+    </div>
+    <div class="pregunta" id="pregunta2">
+        <p>Pregunta 2: Si un objeto tiene una fuerza aplicada de 100 N y una fuerza  de friccion de 20 N, ¿cuál es la fuerza neta, la fuerza de fricción y la aceleración (suponiendo una masa de 8 kg)?</p>
+        <button class "respuesta" onclick="verificarRespuesta(0, 2)">A) Fuerza Neta: 100 N, Fuerza de Fricción: 20 N, Aceleración: 14 m/s²</button>
+        <button class="respuesta" onclick="verificarRespuesta(1, 2)">B) Fuerza Neta: 80 N, Fuerza de Fricción: 20 N, Aceleración: 10 m/s²</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 2)">C) Fuerza Neta: 80 N, Fuerza de Fricción: 10 N, Aceleración: 12 m/s²</button>
+    </div>
+    <div class="pregunta" id="pregunta3">
+        <p>Pregunta 3: Si un objeto tiene una fuerza aplicada de 40 N y una fuerza de friccion  de 30 N, ¿cuál es la fuerza neta, la fuerza de fricción y la aceleración (suponiendo una masa de 6 kg)?</p>
+        <button class="respuesta" onclick="verificarRespuesta(1, 3)">A) Fuerza Neta: 10 N, Fuerza de Fricción: 30 N, Aceleración: 1.67 m/s²</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 3)">B) Fuerza Neta: 40 N, Fuerza de Fricción: 30 N, Aceleración: 2.5 m/s²</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 3)">C) Fuerza Neta: 10 N, Fuerza de Fricción: 40 N, Aceleración: 2 m/s²</button>
+    </div>
+    <div class="pregunta" id="pregunta4">
+        <p>Pregunta 4: Si un objeto tiene una fuerza aplicada  de 90 N y una fuerza de friccion  de 50 N, ¿cuál es la fuerza neta, la fuerza de fricción y la aceleración (suponiendo una masa de 7 kg)?</p>
+        <button class="respuesta" onclick="verificarRespuesta(1, 4)">A) Fuerza Neta: 40 N, Fuerza de Fricción: 50 N, Aceleración: 5.71 m/s²</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 4)">B) Fuerza Neta: 90 N, Fuerza de Fricción: 50 N, Aceleración: 7.14 m/s²</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 4)">C) Fuerza Neta: 40 N, Fuerza de Fricción: 90 N, Aceleración: 6 m/s²</button>
+    </div>
+    <div class="pregunta" id="pregunta5">
+        <p>Pregunta 5: Si un objeto tiene una fuerza aplicada  de 120 N y una fuerza  de friccion de 80 N, ¿cuál es la fuerza neta, la fuerza de fricción y la aceleración (suponiendo una masa de 9 kg)?</p>
+        <button class="respuesta" onclick="verificarRespuesta(0, 5)">A) Fuerza Neta: 40 N, Fuerza de Fricción: 80 N, Aceleración: 4.44 m/s²</button>
+        <button class="respuesta" onclick="verificarRespuesta(1, 5)">B) Fuerza Neta: 40 N, Fuerza de Fricción: 120 N, Aceleración: 6 m/s²</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 5)">C) Fuerza Neta: 120 N, Fuerza de Fricción: 80 N, Aceleración: 8.89 m/s²</button>
+    </div>
+     
+    </div>
+
+    <script>
+        let preguntasRespondidas = [false, false, false, false, false];
+        let preguntasCorrectas = 0;
+        let preguntasIncorrectas = 0;
+
+        function verificarRespuesta(respuesta, pregunta) {
+            if (respuesta === 1) {
+                preguntasCorrectas++;
+                document.getElementById("correctas").textContent = preguntasCorrectas;
+                document.getElementById("resultado").innerHTML = "¡Bien hecho! Respuesta correcta.";
+                document.body.style.backgroundColor = "#39FF14";
+                setTimeout(function() {
+                    document.body.style.backgroundColor = "";
+                    document.getElementById("resultado").innerHTML = "";
+                }, 3000);
+            } else {
+                preguntasIncorrectas++;
+                document.getElementById("incorrectas").textContent = preguntasIncorrectas;
+                const respuestas = [
+                    "B) Fuerza Neta: 60 N, Fuerza de Fricción: 10 N, Aceleración: 12 m/s²",
+                    "B) Fuerza Neta: 80 N, Fuerza de Fricción: 20 N, Aceleración: 10 m/s²",
+                    "A) Fuerza Neta: 10 N, Fuerza de Fricción: 30 N, Aceleración: 1.67 m/s²",
+                    "A) Fuerza Neta: 40 N, Fuerza de Fricción: 50 N, Aceleración: 5.71 m/s²",
+                    "B) Fuerza Neta: 40 N, Fuerza de Fricción: 120 N, Aceleración: 6 m/s²"
+                ];
+                document.getElementById("resultado").innerHTML = "Fallaste. La respuesta correcta es: " + respuestas[pregunta - 1];
+                document.body.style.backgroundColor = "#FF5733";
+                setTimeout(function() {
+                    document.body.style.backgroundColor = "";
+                    document.getElementById("resultado").innerHTML = "";
+                }, 5000);
+            }
+            document.getElementById("pregunta" + pregunta).style.display = "none";
+        }
+    </script>
+</body>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ff004cc4;
+            transition: background-color 0.5s;
+        }
+
+        h1 {
+            background-color: #FDE54D;
+            color: #333;
+            padding: 10px;
+        }
+
+        .pregunta {
+            margin: 20px;
+        }
+
+        .respuesta {
+            background-color: #0F4E7D;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #resultado {
+            margin: 20px;
+            font-weight: bold;
+        }
+
+        #contador {
+            margin: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prueba tus conocimientos de física: Movimiento Armónico Simple</h1>
+    <div class="pregunta" id="pregunta1">
+        <p>Ejercicio 1: Amplitud y Período</p>
+        <p>Dado un sistema en MAS con una amplitud de 3 cm y un período de 2 segundos, calcula la frecuencia, la frecuencia angular y la velocidad máxima del sistema.</p>
+        <button class="respuesta" onclick="verificarRespuesta(1, 1)">A) Frecuencia: 0.5 Hz, Frecuencia Angular: π rad/s, Velocidad Máxima: 3 cm/s</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 1)">B) Frecuencia: 2 Hz, Frecuencia Angular: 4π rad/s, Velocidad Máxima: 3 cm/s</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 1)">C) Frecuencia: 0.5 Hz, Frecuencia Angular: 2π rad/s, Velocidad Máxima: 6 cm/s</button>
+    </div>
+    <div class="pregunta" id="pregunta2">
+        <p>Ejercicio 2: Frecuencia Angular y Fase Inicial</p>
+        <p>Si un sistema en MAS tiene una frecuencia angular de 4 rad/s y una fase inicial de π/3 radianes, encuentra la amplitud máxima, el período y la frecuencia del sistema.</p>
+        <button class="respuesta" onclick="verificarRespuesta(0, 2)">A) Amplitud Máxima: 4 cm, Período: π/2 segundos, Frecuencia: 2 Hz</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 2)">B) Amplitud Máxima: 4 cm, Período: π segundos, Frecuencia: 4 Hz</button>
+        <button class="respuesta" onclick="verificarRespuesta(1, 2)">C) Amplitud Máxima: 4 cm, Período: π/4 segundos, Frecuencia: 4 Hz</button>
+    </div>
+    <div class="pregunta" id="pregunta3">
+        <p>Ejercicio 3: Velocidad Máxima</p>
+        <p>Un objeto en movimiento armónico simple tiene una amplitud de 6 cm y una frecuencia angular de 2.5 rad/s. Calcula la velocidad máxima del objeto en m/s.</p>
+        <button class="respuesta" onclick="verificarRespuesta(0, 3)">A) Velocidad Máxima: 0.025 m/s</button>
+        <button class="respuesta" onclick="verificarRespuesta(1, 3)">B) Velocidad Máxima: 0.15 m/s</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 3)">C) Velocidad Máxima: 15 m/s</button>
+    </div>
+    <div class="pregunta" id="pregunta4">
+        <p>Ejercicio 4: Desplazamiento en un Tiempo Dado</p>
+        <p>Supongamos que un objeto en MAS tiene una amplitud de 4 m, una frecuencia de 1 Hz y una fase inicial de 0 radianes. ¿Cuál es el desplazamiento del objeto en el tiempo t = 0.5 segundos?</p>
+        <button class="respuesta" onclick="verificarRespuesta(0, 4)">A) Desplazamiento: 4 m</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 4)">B) Desplazamiento: -4 m</button>
+        <button class="respuesta" onclick="verificarRespuesta(1, 4)">C) Desplazamiento: 0 m</button>
+    </div>
+    <div class="pregunta" id="pregunta5">
+        <p>Ejercicio 5: Período y Amplitud</p>
+        <p>Si un resorte oscila con un período de 0.8 segundos y una velocidad máxima de 2 m/s, ¿cuál es la amplitud de su movimiento?</p>
+        <button class="respuesta" onclick="verificarRespuesta(0, 5)">A) Amplitud: 2.5 m</button>
+        <button class="respuesta" onclick="verificarRespuesta(1, 5)">B) Amplitud: 1.6 m</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 5)">C) Amplitud: 4 m</button>
+    </div>
+    <div class="pregunta" id="pregunta6">
+        <p>Ejercicio 6: Frecuencia y Fase Inicial</p>
+        <p>Dado que un objeto en MAS tiene una amplitud de 5 cm, un período de 0.4 segundos y una velocidad máxima de 10 cm/s, calcula la frecuencia angular y la fase inicial.</p>
+        <button class="respuesta" onclick="verificarRespuesta(0, 6)">A) Frecuencia Angular: 2π rad/s, Fase Inicial: 0 radianes</button>
+        <button class="respuesta" onclick="verificarRespuesta(1, 6)">B) Frecuencia Angular: 10π rad/s, Fase Inicial: π/2 radianes</button>
+        <button class="respuesta" onclick="verificarRespuesta(0, 6)">C) Frecuencia Angular: 0.5π rad/s, Fase Inicial: π radianes</button>
+    </div>
+    
+    </div>
+
+    <script>
+        let preguntasRespondidas = [false, false, false, false, false, false];
+        let preguntasCorrectas = 0;
+        let preguntasIncorrectas = 0;
+
+        function verificarRespuesta(respuesta, pregunta) {
+            if (respuesta === 1) {
+                preguntasCorrectas++;
+                document.getElementById("correctas").textContent = preguntasCorrectas;
+                document.getElementById("resultado").innerHTML = "¡Bien hecho! Respuesta correcta.";
+                document.body.style.backgroundColor = "#39FF14";
+                setTimeout(function() {
+                    document.body.style.backgroundColor = "";
+                    document.getElementById("resultado").innerHTML = "";
+                }, 3000);
+            } else {
+                preguntasIncorrectas++;
+                document.getElementById("incorrectas").textContent = preguntasIncorrectas;
+                const respuestas = [
+                    "B) Frecuencia: 2 Hz, Frecuencia Angular: 4π rad/s, Velocidad Máxima: 3 cm/s",
+                    "C) Amplitud Máxima: 4 cm, Período: π/4 segundos, Frecuencia: 4 Hz",
+                    "B) Velocidad Máxima: 0.15 m/s",
+                    "C) Desplazamiento: 0 m",
+                    "B) Amplitud: 1.6 m",
+                    "B) Frecuencia Angular: 10π rad/s, Fase Inicial: π/2 radianes"
+                ];
+                document.getElementById("resultado").innerHTML = "Fallaste. La respuesta correcta es: " + respuestas[pregunta - 1];
+                document.body.style.backgroundColor = "#FF5733";
+                setTimeout(function() {
+                    document.body.style.backgroundColor = "";
+                    document.getElementById("resultado").innerHTML = "";
+                }, 5000);
+            }
+            document.getElementById("pregunta" + pregunta).style.display = "none";
+        }
+    </script>
+</body>
+ 
+
+
+
+
+
+
+
+ 
+ 
